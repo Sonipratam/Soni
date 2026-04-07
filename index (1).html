@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Skincare Shop online soni /head></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(180deg,#3a7bd5,#00d2ff);
+  color:#333;
+}
+
+.container { padding:20px; }
+
+.card {
+  background:#fff;
+  border-radius:20px;
+  padding:15px;
+  margin-bottom:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+  animation:fadeIn .6s ease;
+}
+
+input,button {
+  width:100%;
+  padding:10px;
+  margin-top:8px;
+  border:none;
+  border-radius:12px;
+}
+
+button {
+  background:#007bff;
+  color:#fff;
+  cursor:pointer;
+  transition:.3s;
+}
+button:hover { transform:scale(1.05); }
+
+.product img {
+  width:100%;
+  border-radius:12px;
+}
+
+.product:hover {
+  transform:translateY(-5px);
+}
+
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(15px);}
+  to {opacity:1;}
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h2>Sign Up / Login</h2>
+<div class="card">
+<input placeholder="Nama Lengkap">
+<input placeholder="Email">
+<input placeholder="No HP">
+<input placeholder="Alamat">
+<input type="password" placeholder="Password">
+<button onclick="login()">Masuk</button>
+</div>
+
+<h2>Produk Skincare</h2>
+
+<div class="card product">
+<img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc">
+<h3>Serum Brightening</h3>
+<p>Rp 120.000</p>
+<button onclick="addToCart('Serum Brightening',120000)">Tambah</button>
+</div>
+
+<div class="card product">
+<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348">
+<h3>Facial Wash</h3>
+<p>Rp 80.000</p>
+<button onclick="addToCart('Facial Wash',80000)">Tambah</button>
+</div>
+
+<div class="card product">
+<img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5">
+<h3>Moisturizer</h3>
+<p>Rp 150.000</p>
+<button onclick="addToCart('Moisturizer',150000)">Tambah</button>
+</div>
+
+<a href="cart.html"><button>Lihat Keranjang 🛒</button></a>
+
+</div>
+
+<script>
+function login(){
+  alert("Login berhasil!");
+}
+
+function addToCart(nama,harga){
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push({nama,harga});
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Ditambahkan ke keranjang!");
+}
+</script>
+
+</body>
+</html>
